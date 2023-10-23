@@ -8,20 +8,8 @@ int bitMask(int start, int pattern,int bits);
 
 int main(){
     printf("Bit  Reversed\n");
-    int input[8][4]; //Moga li da go napravq bool
-    // imam 8 4 bit numbers
-    // later
 
-//test
-    // int a[2] = {1,2};
-    // printf("%d", a[1]);
-    // printf("\n");
-    // printf("%d", a);
-    // printf("\n");
-    // printf("%d", *a);
-    // printf("\n");
-
-    //biray number input
+    // biray number input
     // int binaryLength = 4;
     // int num1[binaryLength];
     // for(int i = 0; i<4; i++){
@@ -31,25 +19,10 @@ int main(){
     // bitReversedV01(num1, binaryLength);
 
     //v02
-    unsigned char b = 0b00111011;
-    // printf("%d", b);
-    // printf("\n");
-    // bitReversedV02(&b);
-    // printf("%d", b);
-    int a = 0xAA;
-    // a = bitMask(0, 2, 8);
-    // printf("%d", a);
+    unsigned char b = 0b00101011;
     printf("%d\n", b);
     bitReversedV03(&b,8);
     printf("%d", b);
-
-    //now miror the number <=> reversed array
-    //variant 1 obhojdame prosto masiva naobratno
-    // for(int i =0; i<binaryLength; i++){
-    //     printf("%d", num1[i]);
-    // }
-
-    //variant 2 swap na purvi i posleden bit i taka n/2 puti
 }
 
 
