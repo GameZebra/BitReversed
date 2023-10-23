@@ -5,6 +5,7 @@ void bitReversedV01(int num[], int length);
 void bitReversedV02(char *num);
 void bitReversedV03(char *num, int bits);
 void bitReversedV04(char *num, int bits);
+void bitReversedV05(char *num, int bits);
 int bitMask(int start, int pattern,int bits);
 void binaryPrint(int number, int bits);
 
@@ -25,7 +26,7 @@ int main(){
     unsigned char b = 0b00101011;
     int bits = 8;
     binaryPrint(b, bits);
-    bitReversedV04(&b,bits);
+    bitReversedV05(&b,bits);
     binaryPrint(b, bits);
     
 }
@@ -68,6 +69,19 @@ void bitReversedV04(char *num, int bits){
         int pattern = (int)(2<<i); 
         *num = (((*num & bitMask(1, pattern, bits))) >> pattern) | (((*num & bitMask(0, pattern, bits)) << pattern));
     }
+}
+void bitReversedV05(char *num, int bits){
+    unsigned char swap = 0x00; 
+    for(int i = 0; i < bits; i++){
+        if(*num < 0){
+            swap = swap >> 1;
+            swap = swap | 0x80; 
+        }
+        else
+            swap = swap >> 1;
+        *num = *num << 1;
+    }
+    *num = swap;
 }
 
 int bitMask(int start, int pattern, int bits){
