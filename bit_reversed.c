@@ -6,6 +6,7 @@ void bitReversedV02(char *num);
 void bitReversedV03(char *num, int bits);
 void bitReversedV04(char *num, int bits);
 int bitMask(int start, int pattern,int bits);
+void binaryPrint(int number, int bits);
 
 int main(){
     printf("Bit  Reversed\n");
@@ -22,9 +23,10 @@ int main(){
     //v02 - v05 
     // just swap the number in the function and it will work
     unsigned char b = 0b00101011;
-    printf("%d\n", b);
-    bitReversedV04(&b,8);
-    printf("%d", b);
+    int bits = 8;
+    binaryPrint(b, bits);
+    bitReversedV04(&b,bits);
+    binaryPrint(b, bits);
     
 }
 
@@ -75,7 +77,6 @@ int bitMask(int start, int pattern, int bits){
     // bits     - the size of the mask
     // example: 0011 0011 - 
     // would require start = 0; pattern = 2; bits = 8;
-
     int mask = 0x00;
     for(int i = 0; i < bits/pattern/2; i++){
         for(int j = 0; j < pattern; j++){
@@ -88,4 +89,20 @@ int bitMask(int start, int pattern, int bits){
         }
     }
     return mask;
+}
+
+void binaryPrint(int number, int bits) 
+{
+    unsigned int i;
+    i = 1<<(bits-1);
+
+    while (i > 0) 
+    {
+        if (number & i)
+            printf("1");
+        else
+            printf("0");
+        i >>= 1;
+    }
+    printf("\n");
 }
